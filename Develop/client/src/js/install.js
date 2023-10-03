@@ -1,3 +1,6 @@
+// Define deferredPrompt at a scope accessible to the needed event listeners
+let deferredPrompt;
+
 // Get a reference to the 'buttonInstall' element from the DOM.
 const butInstall = document.getElementById('buttonInstall');
 

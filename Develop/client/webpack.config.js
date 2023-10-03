@@ -23,6 +23,8 @@ module.exports = () => {
         filename: 'index.html',
       }),
       new WebpackPwaManifest({
+        fingerprints: false, //not adding hash to name files which really messy
+        inject: true,
         name: 'JATE',
         short_name: 'JATE',
         description: 'JATE INNOVATION',

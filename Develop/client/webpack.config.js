@@ -41,6 +41,7 @@ module.exports = () => {
       }),
       new InjectManifest({ //plugin from Workbox allows you to create a list of files to be precached in the service worker
         swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
       }),
     ],
     

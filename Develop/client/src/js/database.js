@@ -13,7 +13,7 @@ const initdb = async () =>
   });
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
-export const putDb = async (content) => { console.error('putDb not implemented');
+export const putDb = async (content) => { console.log('Put to the database');
 // Open (or create) the 'jate' database with version 1.
 const db = await openDB('jate', 1);
 

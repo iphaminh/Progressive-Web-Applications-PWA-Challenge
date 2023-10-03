@@ -38,5 +38,4 @@ registerRoute();
         statuses: [0, 200], //property passed to the plugin's configuration object, allow responses with these status codes to be cached.
       }), //Only save (cache) the responses if they say everything is OK (status 200)
     ],
-  })
-);
+  });

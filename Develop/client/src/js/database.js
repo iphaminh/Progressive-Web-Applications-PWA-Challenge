@@ -33,7 +33,8 @@ return tx.done;
 };
 
 // TODO: Add logic for a method that gets all the content from the database
-export const getDb = async () => {console.error('getDb not implemented');
+export const getDb = async () => {
+  try {
 // Open (or create) the 'jate' database with version 1.
 const db = await openDB('jate', 1);
 
@@ -48,6 +49,10 @@ const store = tx.objectStore('jate');
 const allContent = await store.getAll();
 
 // Return all the fetched content.
-return allContent;
+console.log('Retrieved Data:', allContent);
+    return allContent;
+  } catch (error) {
+    console.error('Error retrieving data:', error);
+  }
 };
 initdb();

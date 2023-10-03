@@ -24,17 +24,16 @@ const tx = db.transaction('jate', 'readwrite');
 // Access the 'jate' object store within the transaction.
 const store = tx.objectStore('jate');
 
-// Add or update the content in the object store.
-// If a record with the same key exists, it will be updated. Otherwise, a new record will be added.
-await store.put({ content: content });
+//  method on the store and pass in the content.
+  const request = store.put({id: 1, value: content });
 
 // Wait for the transaction to complete and then return its status.
-return tx.done;
+const result = await request;
+console.log('data saved to the database', result.valueOf);
 };
 
 // TODO: Add logic for a method that gets all the content from the database
-export const getDb = async () => {
-  try {
+export const getDb = async () => {console.log('GET from the database');
 // Open (or create) the 'jate' database with version 1.
 const db = await openDB('jate', 1);
 
@@ -45,14 +44,12 @@ const tx = db.transaction('jate', 'readonly');
 // Access the 'jate' object store within the transaction.
 const store = tx.objectStore('jate');
 
-// Retrieve all records from the object store.
-const allContent = await store.getAll();
+// method to get all data in the database.
+  const request = store.get(1);
 
 // Return all the fetched content.
-console.log('Retrieved Data:', allContent);
-    return allContent;
-  } catch (error) {
-    console.error('Error retrieving data:', error);
-  }
+const result = await request;
+  result ? console.log("Data retreived from the database", result.valueOf) : console.log("data not found")
+  return result?.valueOf;
 };
 initdb();

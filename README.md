@@ -44,6 +44,10 @@ Visit http://localhost:YOUR_PORT in your browser.
 <img src="Develop/img/Screenshot 2023-10-03 at 10.13.06 PM.png" alt="Screenshot 2" width="300"/>
 <img src="Develop/img/Screenshot 2023-10-03 at 10.13.19 PM.png" alt="Screenshot 3" width="300"/>
 
+## Links
+Heroku: https://pwa-challenge-2023-5a4d02c02bfe.herokuapp.com/
+Github: https://github.com/iphaminh/Progressive-Web-Applications-PWA-Challenge
+
 ## Usage
 
 Editing: Start typing in the editor to create your text document.

@@ -26,16 +26,26 @@ export default class {
     // Fall back to localStorage if nothing is stored in indexeddb, and if neither is available, set the value to header.
     getDb().then((data) => {
       console.info('Loaded data from IndexedDB, injecting into editor');
-      console.log('Data from IndexedDB:', data);
-      console.log('Data from localStorage:', localData);
-      console.log('Data from header:', header);
+      console.log('Data retrieved from DB:', data);
       
-      const editorData = data || localData || header;
-      console.log('Using editor data:', editorData);
+      let editorData = header; // default value
+      
+      if (data && typeof data === 'object' && typeof data.value === 'string') {
+          // If data is an object and data.value is a string, use it
+          editorData = data.value;
+      } else if (typeof localData === 'string') {
+          // If localData is a string, use it
+          editorData = localData;
+      } // else use the default value (header)
+      
+      console.log('Data to set in editor:', editorData);
+      console.log('Type of data to set in editor:', typeof editorData);
       
       this.editor.setValue(editorData);
-  });
-  
+  }).catch(error => {
+      // Log any errors from getDb
+      console.error('Error getting data from IndexedDB:', error);
+  });  
 
     this.editor.on('change', () => {
       localStorage.setItem('content', this.editor.getValue());

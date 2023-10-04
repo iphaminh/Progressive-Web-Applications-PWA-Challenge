@@ -27,7 +27,7 @@ warmStrategyCache({
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
-registerRoute();
+registerRoute(
 ({ request }) => ['style', 'script', 'worker'].includes(request.destination), // requests targeting styles, scripts, and workers, use a strategy that first tries to fetch the most up-to-date version and falls back to the cached version if the network is not available
   new StaleWhileRevalidate({
     // Name of the cache storage.
@@ -38,4 +38,5 @@ registerRoute();
         statuses: [0, 200], //property passed to the plugin's configuration object, allow responses with these status codes to be cached.
       }), //Only save (cache) the responses if they say everything is OK (status 200)
     ],
-  });
+  })
+  );

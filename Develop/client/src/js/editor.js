@@ -28,7 +28,7 @@ export default class {
       console.log('Data retrieved from DB:', data);
     
       // Ensure that data.value is a string before setting it as the editor value
-      if (typeof data.value !== 'string') {
+      if (data && typeof data.value !== 'string') {
         console.error('Data.value from IndexedDB is not a string:', data.value);
         data.value = '';
       }
@@ -36,11 +36,11 @@ export default class {
       // Ensure that localData is a string
       const localDataStr = typeof localData === 'string' ? localData : '';
     
-      this.editor.setValue(data.value || localDataStr || header);
-    }).catch(error => {
-      // Log any errors from getDb
-      console.error('Error getting data from IndexedDB:', error);
-    });
+      this.editor.setValue(data?.value || localDataStr || header);
+}).catch(error => {
+  // Log any errors from getDb
+  console.error('Error getting data from IndexedDB:', error);
+});
     
 
     this.editor.on('change', () => {

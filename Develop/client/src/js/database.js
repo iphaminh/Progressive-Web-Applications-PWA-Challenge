@@ -13,7 +13,8 @@ const initdb = async () =>
   });
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
-export const putDb = async (content) => { console.log('Put to the database');
+export const putDb = async (content) => { 
+  console.log('Attempting to store data:', content, typeof content);
 // Open (or create) the 'jate' database with version 1.
 const db = await openDB('jate', 1);
 
@@ -49,6 +50,7 @@ const store = tx.objectStore('jate');
 
 // Return all the fetched content.
 const result = await request;
+console.log('Data retrieved from DB:', result, typeof result);
   result ? console.log("Data retreived from the database", result.valueOf) : console.log("data not found")
   return result?.valueOf;
 };

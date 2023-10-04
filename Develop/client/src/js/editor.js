@@ -42,3 +42,5 @@ export default class {
       // Log any errors from getDb
       console.error('Error getting data from IndexedDB:', error);
     });
+  }
+}

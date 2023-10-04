@@ -40,11 +40,16 @@ export default class {
       console.log('Data to set in editor:', editorData);
       console.log('Type of data to set in editor:', typeof editorData);
     
+      if (typeof editorData !== 'string') {
+        console.error('Unexpected non-string editor data:', editorData);
+        editorData = ''; // Fallback to an empty string to prevent CodeMirror error
+      }
+    
       this.editor.setValue(editorData);
     }).catch(error => {
       // Log any errors from getDb
       console.error('Error getting data from IndexedDB:', error);
     });
     
-  }
+
 }

@@ -26,6 +26,9 @@ export default class {
     getDb().then((data) => {
       console.info('Loaded data from IndexedDB, injecting into editor');
 
+      // Debugging: Log the type and value of retrieved data
+      console.log('Type of data from IndexedDB:', typeof data);
+      console.log('Value of data from IndexedDB:', data);
       // Ensure that data is a string before setting it as the editor value
       if (typeof data !== 'string') {
         console.error('Data from IndexedDB is not a string:', data);

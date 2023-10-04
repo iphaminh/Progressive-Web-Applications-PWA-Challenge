@@ -38,6 +38,12 @@ Start the development server:
 npm run start:dev
 Visit http://localhost:YOUR_PORT in your browser.
 
+## Screenshots
+
+<img src="Develop/img/Screenshot 2023-10-03 at 10.12.54 PM.png" alt="Screenshot 1" width="300"/>
+<img src="Develop/img/Screenshot 2023-10-03 at 10.13.06 PM.png" alt="Screenshot 2" width="300"/>
+<img src="Develop/img/Screenshot 2023-10-03 at 10.13.19 PM.png" alt="Screenshot 3" width="300"/>
+
 ## Usage
 
 Editing: Start typing in the editor to create your text document.

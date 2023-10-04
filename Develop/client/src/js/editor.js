@@ -37,10 +37,14 @@ export default class {
         editorData = localData;
       } // else use the default value (header)
     
+      console.log('Data to set in editor:', editorData);
+      console.log('Type of data to set in editor:', typeof editorData);
+    
       this.editor.setValue(editorData);
     }).catch(error => {
       // Log any errors from getDb
       console.error('Error getting data from IndexedDB:', error);
     });
+    
   }
 }
